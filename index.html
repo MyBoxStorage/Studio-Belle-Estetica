@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Studio Belle Estética - Procedimentos estéticos avançados em Pinheiros, São Paulo. Agende seu momento.">
+  <title>Studio Belle Estética | Um momento só seu</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-bg: #FAF8F5;
+      --color-bg-alt: #F2EDE6;
+      --color-text: #1A1A1A;
+      --color-text-muted: #7A6E65;
+      --color-gold: #C9A96E;
+      --color-gold-light: #E8D5B0;
+      --color-terracota: #C4856A;
+      --color-white: #FFFFFF;
+      --color-divider: #E8E0D5;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+    
+    /* Section Header Pattern */
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+    
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title { font-size: 32px; }
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: transparent;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      padding: 20px 0;
+    }
+    
+    .header.scrolled {
+      background: var(--color-bg);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    /* Logo */
+    .logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .logo-line1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 18px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    
+    .logo-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 4px 0;
+    }
+    
+    .logo-line2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    
+    .header.scrolled .logo-line1,
+    .header.scrolled .logo-line2 {
+      color: var(--color-text);
+    }
+    
+    /* Navigation */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+    
+    .nav-link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .nav-cta {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      background: var(--color-gold);
+      color: var(--color-white);
+      padding: 10px 24px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.3s ease;
+    }
+    
+    .nav-cta:hover {
+      background: var(--color-text);
+    }
+    
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 101;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-bg);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      z-index: 99;
+    }
+    
+    .mobile-nav.active {
+      display: flex;
+    }
+    
+    .mobile-nav .nav-link {
+      font-size: 18px;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 80px;
+      background: var(--color-bg);
+    }
+    
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .hero-content {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 24px;
+      display: block;
+      animation: fadeInUp 0.8s ease 0s forwards;
+      opacity: 0;
+    }
+    
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 64px;
+      line-height: 1.1;
+      color: var(--color-text);
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease 0.1s forwards;
+      opacity: 0;
+    }
+    
+    .hero-text {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--color-text-muted);
+      max-width: 420px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+      opacity: 0;
+    }
+    
+    .hero-ctas {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      animation: fadeInUp 0.8s ease 0.3s forwards;
+      opacity: 0;
+    }
+    
+    .btn-primary {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--color-gold);
+      background: transparent;
+      color: var(--color-gold);
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary:hover {
+      background: var(--color-gold);
+      color: var(--color-white);
+    }
+    
+    .btn-secondary {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--color-gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      gap: 12px;
+    }
+    
+    .hero-image-wrapper {
+      position: relative;
+      animation: fadeInRight 0.8s ease 0.2s forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .hero-ornament {
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 80px;
+      background: var(--color-gold);
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-title {
+        font-size: 40px;
+      }
+      .hero-image {
+        height: 400px;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    
+    /* Diferenciais Strip */
+    .diferenciais {
+      background: var(--color-bg-alt);
+      padding: 40px 24px;
+      border-top: 1px solid var(--color-divider);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    
+    .diferenciais-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .diferencial {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      padding: 0 24px;
+      position: relative;
+    }
+    
+    .diferencial:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 40px;
+      background: var(--color-divider);
+    }
+    
+    @media (max-width: 768px) {
+      .diferencial:not(:last-child)::after {
+        display: none;
+      }
+      .diferencial {
+        min-width: 45%;
+      }
+    }
+    
+    .diferencial-icon {
+      width: 24px;
+      height: 24px;
+      margin: 0 auto 12px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    
+    .diferencial-title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    
+    .diferencial-text {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+    
+    /* Servicos Section */
+    .servicos {
+      padding: 80px 24px;
+      background: var(--color-bg);
+    }
+    
+    .servicos-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .categoria {
+      margin-bottom: 48px;
+    }
+    
+    .categoria-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    
+    .categoria-icon {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    
+    .categoria-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 24px;
+      color: var(--color-text);
+    }
+    
+    .servico-lista {
+      background: var(--color-white);
+      border: 1px solid var(--color-divider);
+    }
+    
+    .servico-item {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr auto;
+      gap: 24px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-divider);
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .servico-item:last-child {
+      border-bottom: none;
+    }
+    
+    .servico-item:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    
+    .servico-nome {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--color-text);
+    }
+    
+    .servico-desc {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+    }
+    
+    .servico-preco {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--color-gold);
+      white-space: nowrap;
+    }
+    
+    .servico-preco.consultar {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--color-text-muted);
+    }
+    
+    .servico-consultar {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--color-gold);
+      text-decoration: none;
+      margin-left: 8px;
+    }
+    
+    .servico-nota {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-top: 16px;
+      font-style: italic;
+    }
+    
+    @media (max-width: 768px) {
+      .servico-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+    
+    /* Combos Section */
+    .combos {
+      padding: 80px 24px;
+      background: var(--color-bg-alt);
+    }
+    
+    .combos-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .combos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .combo-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-divider);
+      padding: 32px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .combo-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+    
+    .combo-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--color-gold);
+      color: var(--color-white);
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+    }
+    
+    .combo-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    
+    .combo-inclui {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .combo-preco-antigo {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+    }
+    
+    .combo-preco-novo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--color-gold);
+      margin-bottom: 12px;
+    }
+    
+    .combo-desc {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    
+    @media (max-width: 768px) {
+      .combos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Promocoes Section */
+    .promocoes {
+      padding: 80px 24px;
+      background: var(--color-bg-alt);
+    }
+    
+    .promocoes-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .promocoes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .promo-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-divider);
+      padding: 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+    
+    .promo-card:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    
+    .promo-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    
+    .promo-card:nth-child(1) .promo-icon {
+      background: var(--color-terracota);
+      color: var(--color-white);
+    }
+    
+    .promo-card:nth-child(2) .promo-icon {
+      background: var(--color-gold);
+      color: var(--color-white);
+    }
+    
+    .promo-card:nth-child(3) .promo-icon {
+      background: var(--color-gold-light);
+      color: var(--color-text);
+      border: 1px solid var(--color-gold);
+    }
+    
+    .promo-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    
+    .promo-content p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+    
+    .promo-tag {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--color-gold);
+    }
+    
+    @media (max-width: 768px) {
+      .promocoes-grid {
+        grid-template-columns: 1fr;
+      }
+      .promo-card {
+        flex-direction: column;
+      }
+    }
+    
+    /* Stats Section */
+    .stats {
+      padding: 60px 24px;
+      background: var(--color-bg);
+    }
+    
+    .stats-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 56px;
+      color: var(--color-gold);
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-top: 8px;
+    }
+    
+    /* Sobre Section */
+    .sobre {
+      padding: 80px 24px;
+      background: var(--color-bg);
+    }
+    
+    .sobre-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .sobre-image-wrapper {
+      position: relative;
+    }
+    
+    .sobre-image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: -10px;
+      bottom: -10px;
+      border: 2px solid var(--color-gold);
+      z-index: 0;
+    }
+    
+    .sobre-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .sobre-content .section-header {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    
+    .sobre-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 38px;
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+    
+    .sobre-bio {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    
+    .sobre-credenciais {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    
+    .sobre-credenciais li {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .sobre-credenciais li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+    }
+    
+    .sobre-cta {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--color-gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    @media (max-width: 768px) {
+      .sobre-container {
+        grid-template-columns: 1fr;
+      }
+      .sobre-title {
+        font-size: 28px;
+      }
+    }
+    
+    /* Pet & Kids Friendly */
+    .pet-kids {
+      background: var(--color-bg-alt);
+      padding: 32px 24px;
+      border-top: 1px solid var(--color-divider);
+      border-bottom: 1px solid var(--color-divider);
+      text-align: center;
+    }
+    
+    .pet-kids-icons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .pet-kids-icons svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    
+    .pet-kids-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    
+    .pet-kids-sub {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+    
+    /* Galeria Section */
+    .galeria {
+      padding: 80px 24px;
+      background: var(--color-bg);
+    }
+    
+    .galeria-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 280px 200px;
+      gap: 8px;
+    }
+    
+    .galeria-item {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .galeria-item:nth-child(4),
+    .galeria-item:nth-child(5),
+    .galeria-item:nth-child(6) {
+      grid-column: span 1;
+    }
+    
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .galeria-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(201,169,110,0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .galeria-item:hover img {
+      transform: scale(1.02);
+    }
+    
+    .galeria-item:hover::after {
+      opacity: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 180px);
+      }
+      .galeria-item:nth-child(1) {
+        grid-column: span 2;
+      }
+    }
+    
+    /* Depoimentos Section */
+    .depoimentos {
+      padding: 80px 24px;
+      background: var(--color-bg-alt);
+    }
+    
+    .depoimentos-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .depoimento-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-divider);
+      padding: 32px;
+      position: relative;
+    }
+    
+    .depoimento-quote {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 80px;
+      color: var(--color-gold-light);
+      opacity: 0.5;
+      line-height: 1;
+    }
+    
+    .depoimento-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .depoimento-inicial {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 56px;
+      color: var(--color-gold);
+      line-height: 1;
+    }
+    
+    .depoimento-info h4 {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--color-text);
+    }
+    
+    .depoimento-stars {
+      color: var(--color-gold);
+      font-size: 14px;
+    }
+    
+    .depoimento-text {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: 80px 24px;
+      background: var(--color-bg);
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid var(--color-divider);
+    }
+    
+    .faq-question {
+      width: 100%;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    
+    .faq-question h3 {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--color-text);
+    }
+    
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--color-gold);
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-icon::before {
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    
+    .faq-icon::after {
+      width: 2px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .faq-item.active .faq-icon::after {
+      transform: translateX(-50%) rotate(90deg);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-bottom: 20px;
+    }
+    
+    .faq-answer p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    
+    /* Contato Section */
+    .contato {
+      padding: 80px 24px;
+      background: var(--color-bg-alt);
+    }
+    
+    .contato-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+    }
+    
+    .form-card {
+      background: var(--color-white);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+      padding: 40px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-divider);
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text);
+      background: transparent;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-gold);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--color-gold);
+      color: var(--color-white);
+      border: none;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .form-submit:hover {
+      background: var(--color-text);
+    }
+    
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+    
+    .form-success.visible {
+      display: block;
+    }
+    
+    .form-success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 28px;
+      color: var(--color-gold);
+      margin-bottom: 12px;
+    }
+    
+    .form-success p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+    }
+    
+    .contato-info h3 {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    
+    .contato-info p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    
+    .contato-info a {
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+    
+    .contato-divider {
+      height: 1px;
+      background: var(--color-divider);
+      margin: 24px 0;
+    }
+    
+    .contato-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .contato-social a {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--color-divider);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .contato-social a:hover {
+      border-color: var(--color-gold);
+      background: var(--color-gold);
+    }
+    
+    .contato-social a:hover svg {
+      stroke: var(--color-white);
+    }
+    
+    .contato-social svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    
+    .contato-mapa {
+      margin-top: 24px;
+      border: 1px solid var(--color-divider);
+    }
+    
+    .contato-mapa iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+    
+    .contato-mapa-nota {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--color-text-muted);
+      padding: 8px;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .contato-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Footer */
+    .footer {
+      background: #1A1A1A;
+      color: #FAF8F5;
+      padding: 60px 24px 24px;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    
+    .footer-logo .logo-line1,
+    .footer-logo .logo-line2 {
+      color: #FAF8F5;
+    }
+    
+    .footer-logo p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: rgba(250,248,245,0.7);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(250,248,245,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      border-color: var(--color-gold);
+      background: var(--color-gold);
+    }
+    
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+      stroke: rgba(250,248,245,0.7);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    
+    .footer-social a:hover svg {
+      stroke: var(--color-white);
+    }
+    
+    .footer-nav h4,
+    .footer-hours h4 {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FAF8F5;
+      margin-bottom: 20px;
+    }
+    
+    .footer-nav a {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: rgba(250,248,245,0.6);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-nav a:hover {
+      color: #FAF8F5;
+    }
+    
+    .footer-hours p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: rgba(250,248,245,0.6);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .footer-hours a {
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+    
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(250,248,245,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-bottom p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: rgba(250,248,245,0.5);
+    }
+    
+    .footer-bottom a {
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+    
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      z-index: 1000;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulse 3s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+      animation: none;
+    }
+    
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--color-white);
+    }
+    
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 68px;
+      background: var(--color-text);
+      color: var(--color-white);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <span class="logo-line1">Studio Belle</span>
+        <span class="logo-divider"></span>
+        <span class="logo-line2">Estética</span>
+      </a>
+      
+      <nav class="nav">
+        <div class="nav-links">
+          <a href="#servicos" class="nav-link">Serviços</a>
+          <a href="#sobre" class="nav-link">Sobre</a>
+          <a href="#promocoes" class="nav-link">Promoções</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </div>
+        <a href="https://wa.me/5511999999999" class="nav-cta">Agendar</a>
+      </nav>
+      
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#servicos" class="nav-link">Serviços</a>
+      <a href="#sobre" class="nav-link">Sobre</a>
+      <a href="#promocoes" class="nav-link">Promoções</a>
+      <a href="#contato" class="nav-link">Contato</a>
+      <a href="https://wa.me/5511999999999" class="btn-primary" style="margin-top: 16px;">Agendar</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-label">— CLÍNICA DE ESTÉTICA AVANÇADA</span>
+        <h1 class="hero-title">Um momento<br>só seu.</h1>
+        <p class="hero-text">Procedimentos estéticos de excelência em um ambiente que foi feito para você relaxar, confiar e se transformar.</p>
+        <div class="hero-ctas">
+          <a href="#servicos" class="btn-primary">Conheça nossos serviços</a>
+          <a href="https://wa.me/5511999999999" class="btn-secondary">Agendar pelo WhatsApp →</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-ornament"></div>
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80" alt="Ambiente do Studio Belle" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais Strip -->
+  <section class="diferenciais">
+    <div class="diferenciais-container">
+      <div class="diferencial fade-in">
+        <svg class="diferencial-icon" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <h3 class="diferencial-title">Atendimento Exclusivo</h3>
+        <p class="diferencial-text">Apenas por agendamento, com horário dedicado para você</p>
+      </div>
+      <div class="diferencial fade-in">
+        <svg class="diferencial-icon" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <h3 class="diferencial-title">Pet & Kids Friendly</h3>
+        <p class="diferencial-text">Traga seu pet e seus filhos. Aqui todo mundo é bem-vindo</p>
+      </div>
+      <div class="diferencial fade-in">
+        <svg class="diferencial-icon" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <h3 class="diferencial-title">12 Anos de Expertise</h3>
+        <p class="diferencial-text">Formação técnica rigorosa e experiência em procedimentos avançados</p>
+      </div>
+      <div class="diferencial fade-in">
+        <svg class="diferencial-icon" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <h3 class="diferencial-title">Localização Premium</h3>
+        <p class="diferencial-text">Estacionamento gratuito em Pinheiros, São Paulo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicos Section -->
+  <section class="servicos" id="servicos">
+    <div class="servicos-container">
+      <div class="section-header fade-in">
+        <span class="section-label">— NOSSOS SERVIÇOS</span>
+        <h2 class="section-title">Cuidado especializado para cada necessidade</h2>
+      </div>
+      
+      <!-- Categoria 1: Rosto & Pele -->
+      <div class="categoria fade-in">
+        <div class="categoria-header">
+          <svg class="categoria-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M6 16c0-3.31 2.69-6 6-6s6 2.69 6 6"/>
+          </svg>
+          <h3 class="categoria-title">Rosto & Pele</h3>
+        </div>
+        <div class="servico-lista">
+          <div class="servico-item">
+            <span class="servico-nome">Limpeza de Pele</span>
+            <span class="servico-desc">Profunda, com extração e hidratação</span>
+            <span class="servico-preco">R$ 180</span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Peeling Químico ou Ultrassônico</span>
+            <span class="servico-desc">Renovação celular e uniformização do tom</span>
+            <span class="servico-preco">R$ 250</span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Microagulhamento</span>
+            <span class="servico-desc">Estimulação de colágeno e rejuvenescimento</span>
+            <span class="servico-preco consultar">A consultar <a href="https://wa.me/5511999999999" class="servico-consultar">Consultar →</a></span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Radiofrequência Facial</span>
+            <span class="servico-desc">Firmeza, contorno e lifting não cirúrgico</span>
+            <span class="servico-preco consultar">A consultar <a href="https://wa.me/5511999999999" class="servico-consultar">Consultar →</a></span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Toxina Botulínica (Botox)</span>
+            <span class="servico-desc">Suavização de linhas de expressão</span>
+            <span class="servico-preco consultar">A consultar <a href="https://wa.me/5511999999999" class="servico-consultar">Consultar →</a></span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Preenchimento Facial/Labial</span>
+            <span class="servico-desc">Volume e contorno com ácido hialurônico</span>
+            <span class="servico-preco consultar">A consultar <a href="https://wa.me/5511999999999" class="servico-consultar">Consultar →</a></span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Categoria 2: Corpo & Modelagem -->
+      <div class="categoria fade-in">
+        <div class="categoria-header">
+          <svg class="categoria-icon" viewBox="0 0 24 24">
+            <path d="M12 4a4 4 0 0 1 4 4v2h2v10H6V10h2V8a4 4 0 0 1 4-4z"/>
+          </svg>
+          <h3 class="categoria-title">Corpo & Modelagem</h3>
+        </div>
+        <div class="servico-lista">
+          <div class="servico-item">
+            <span class="servico-nome">Drenagem Linfática</span>
+            <span class="servico-desc">Redução de inchaço e melhora da circulação</span>
+            <span class="servico-preco">R$ 160</span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Massagem Modeladora</span>
+            <span class="servico-desc">Contorno corporal e redução de medidas</span>
+            <span class="servico-preco">R$ 190</span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Radiofrequência Corporal</span>
+            <span class="servico-desc">Firmeza, celulite e gordura localizada</span>
+            <span class="servico-preco consultar">A consultar <a href="https://wa.me/5511999999999" class="servico-consultar">Consultar →</a></span>
+          </div>
+          <div class="servico-item">
+            <span class="servico-nome">Tratamento para Celulite e Gordura Localizada</span>
+            <span class="servico-desc">Protocolo completo multi-tecnologia</span>
+            <span class="servico-preco consultar">A consultar <a href="https://wa.me/5511999999999" class="servico-consultar">Consultar →</a></span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Categoria 3: Depilação -->
+      <div class="categoria fade-in">
+        <div class="categoria-header">
+          <svg class="categoria-icon" viewBox="0 0 24 24">
+            <path d="M12 2a7 7 0 0 1 7 7c0 3.5-2.5 6.5-7 11-4.5-4.5-7-7.5-7-11a7 7 0 0 1 7-7z"/>
+            <circle cx="12" cy="9" r="2"/>
+          </svg>
+          <h3 class="categoria-title">Depilação</h3>
+        </div>
+        <div class="servico-lista">
+          <div class="servico-item">
+            <span class="servico-nome">Depilação a Laser / Fotodepilação</span>
+            <span class="servico-desc">Resultado duradouro em todas as áreas</span>
+            <span class="servico-preco consultar">A consultar <a href="https://wa.me/5511999999999" class="servico-consultar">Consultar →</a></span>
+          </div>
+        </div>
+      </div>
+      
+      <p class="servico-nota">* Valores sujeitos a alteração. Consulte disponibilidade.</p>
+    </div>
+  </section>
+
+  <!-- Combos Section -->
+  <section class="combos">
+    <div class="combos-container">
+      <div class="section-header fade-in">
+        <span class="section-label">— PACOTES ESPECIAIS</span>
+        <h2 class="section-title">Combine e economize</h2>
+      </div>
+      
+      <div class="combos-grid">
+        <div class="combo-card fade-in">
+          <span class="combo-badge">Mais Procurado</span>
+          <h3 class="combo-title">Belle Rosto Completo</h3>
+          <p class="combo-inclui">Limpeza de Pele + Peeling Ultrassônico + Radiofrequência Facial (3 sessões)</p>
+          <p class="combo-preco-antigo">De: R$ 1.280</p>
+          <p class="combo-preco-novo">Por: R$ 980</p>
+          <p class="combo-desc">Protocolo completo para rejuvenescimento e uniformização facial.</p>
+          <a href="https://wa.me/5511999999999" class="btn-primary">Agendar este combo</a>
+        </div>
+        
+        <div class="combo-card fade-in">
+          <span class="combo-badge">Melhor Custo-Benefício</span>
+          <h3 class="combo-title">Belle Corpo & Silhueta</h3>
+          <p class="combo-inclui">Drenagem Linfática (4 sessões) + Massagem Modeladora (4 sessões) + Radiofrequência Corporal (2 sessões)</p>
+          <p class="combo-preco-antigo">De: R$ 2.100</p>
+          <p class="combo-preco-novo">Por: R$ 1.590</p>
+          <p class="combo-desc">Para quem quer resultados visíveis de contorno e leveza corporal.</p>
+          <a href="https://wa.me/5511999999999" class="btn-primary">Agendar este combo</a>
+        </div>
+        
+        <div class="combo-card fade-in">
+          <span class="combo-badge">Premium</span>
+          <h3 class="combo-title">Belle Botox + Preenchimento</h3>
+          <p class="combo-inclui">Avaliação + Toxina Botulínica + Preenchimento Labial ou Facial</p>
+          <p class="combo-preco-novo" style="font-size: 20px; font-style: italic;">Sob consulta personalizada</p>
+          <p class="combo-desc">Harmonização facial personalizada com avaliação completa da Dra. Isabela.</p>
+          <a href="https://wa.me/5511999999999" class="btn-primary">Solicitar avaliação</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promocoes Section -->
+  <section class="promocoes" id="promocoes">
+    <div class="promocoes-container">
+      <div class="section-header fade-in">
+        <span class="section-label">— OFERTAS ESPECIAIS</span>
+        <h2 class="section-title">Cuide-se mais por menos</h2>
+      </div>
+      
+      <div class="promocoes-grid">
+        <div class="promo-card fade-in">
+          <div class="promo-icon">%</div>
+          <div class="promo-content">
+            <h3>Ritual de Boas-Vindas</h3>
+            <p><strong>20% OFF</strong> na primeira limpeza de pele ou drenagem linfática</p>
+            <span class="promo-tag">Válido para novas clientes</span>
+          </div>
+        </div>
+        
+        <div class="promo-card fade-in">
+          <div class="promo-icon">♥</div>
+          <div class="promo-content">
+            <h3>Belle Indica</h3>
+            <p>Ao indicar uma amiga, ganhe <strong>1 sessão de massagem modeladora grátis</strong></p>
+            <span class="promo-tag">Sem limite de indicações</span>
+          </div>
+        </div>
+        
+        <div class="promo-card fade-in">
+          <div class="promo-icon">★</div>
+          <div class="promo-content">
+            <h3>Belle Fidelidade</h3>
+            <p>Na compra de <strong>6 sessões</strong>, a <strong>7ª é por nossa conta</strong></p>
+            <span class="promo-tag">Drenagem, modeladora e limpeza</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat fade-in">
+        <div class="stat-number" data-target="12">0</div>
+        <p class="stat-label">Anos de experiência clínica</p>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat-number" data-target="10">0</div>
+        <p class="stat-label">Procedimentos especializados</p>
+      </div>
+      <div class="stat fade-in">
+        <div class="stat-number" data-target="2000">0</div>
+        <p class="stat-label">Clientes transformadas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Section -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-container">
+      <div class="sobre-image-wrapper fade-in-left">
+        <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&q=80" alt="Dra. Isabela Fontana" class="sobre-image">
+      </div>
+      <div class="sobre-content fade-in-right">
+        <div class="section-header">
+          <span class="section-label">— SOBRE A DRA. ISABELA FONTANA</span>
+        </div>
+        <h2 class="sobre-title">Experiência que transforma. Cuidado que acolhe.</h2>
+        <p class="sobre-bio">"Com mais de 12 anos dedicados à estética clínica, construí o Studio Belle com um propósito: criar um espaço onde cada cliente se sente única, acolhida e transformada. Minha formação une rigor técnico à sensibilidade humana — porque beleza de verdade começa no bem-estar."</p>
+        <ul class="sobre-credenciais">
+          <li>Graduação em Estética e Cosmética — SENAC SP</li>
+          <li>Especialização em Dermato-Funcional — IBEA</li>
+          <li>Certificação Internacional em Toxina Botulínica — AAE</li>
+          <li>Habilitação em Radiofrequência e Laser — SOBEP</li>
+          <li>Curso Avançado em Microagulhamento — Derma Clinic Institute</li>
+        </ul>
+        <a href="https://wa.me/5511999999999" class="sobre-cta">Agendar com a Dra. Isabela →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pet & Kids Friendly -->
+  <section class="pet-kids">
+    <div class="pet-kids-icons fade-in">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-4 2c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2z"/>
+        <path d="M8 14c-2 0-3 1-3 3v3h14v-3c0-2-1-3-3-3H8z"/>
+      </svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </div>
+    <p class="pet-kids-text fade-in">"Aqui, sua família tem espaço. Traga seu pet e seus filhos — todos são bem-vindos no Studio Belle."</p>
+    <p class="pet-kids-sub fade-in">Contamos com quintal pet friendly e espaço confortável para crianças. Porque cuidar de você não deve significar se preocupar com quem você ama.</p>
+  </section>
+
+  <!-- Galeria Section -->
+  <section class="galeria">
+    <div class="galeria-container">
+      <div class="section-header fade-in">
+        <span class="section-label">— NOSSO ESPAÇO</span>
+        <h2 class="section-title">Um ambiente pensado para você</h2>
+      </div>
+      
+      <div class="galeria-grid">
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=80" alt="Ambiente do Studio" loading="lazy">
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" alt="Procedimento facial" loading="lazy">
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Mesa de tratamento" loading="lazy">
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=80" alt="Produtos cosméticos" loading="lazy">
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" alt="Massagem" loading="lazy">
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80" alt="Recepção" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos Section -->
+  <section class="depoimentos">
+    <div class="depoimentos-container">
+      <div class="section-header fade-in">
+        <span class="section-label">— O QUE DIZEM NOSSAS CLIENTES</span>
+        <h2 class="section-title">Resultados que falam por si</h2>
+      </div>
+      
+      <div class="depoimentos-grid">
+        <div class="depoimento-card fade-in">
+          <span class="depoimento-quote">"</span>
+          <div class="depoimento-header">
+            <span class="depoimento-inicial">M</span>
+            <div class="depoimento-info">
+              <h4>Marina C.</h4>
+              <span class="depoimento-stars">★★★★★</span>
+            </div>
+          </div>
+          <p class="depoimento-text">"Faço drenagem linfática com a Dra. Isabela há 8 meses e nunca me senti tão bem. O ambiente é impecável, ela é extremamente atenciosa e profissional. Me trouxe até minha gata na primeira sessão e fui recebida de braços abertos!"</p>
+        </div>
+        
+        <div class="depoimento-card fade-in">
+          <span class="depoimento-quote">"</span>
+          <div class="depoimento-header">
+            <span class="depoimento-inicial">A</span>
+            <div class="depoimento-info">
+              <h4>Ana R.</h4>
+              <span class="depoimento-stars">★★★★★</span>
+            </div>
+          </div>
+          <p class="depoimento-text">"Fiz o combo rosto completo e me apaixonei pelos resultados. A limpeza de pele e o peeling transformaram minha pele. Ambiente aconchegante, sem aquele clima frio de clínica. Recomendo demais."</p>
+        </div>
+        
+        <div class="depoimento-card fade-in">
+          <span class="depoimento-quote">"</span>
+          <div class="depoimento-header">
+            <span class="depoimento-inicial">J</span>
+            <div class="depoimento-info">
+              <h4>Juliana S.</h4>
+              <span class="depoimento-stars">★★★★★</span>
+            </div>
+          </div>
+          <p class="depoimento-text">"O botox foi minha maior insegurança, mas a Dra. Isabela me explicou tudo com tanta calma que me senti segura desde o início. O resultado ficou naturalíssimo. Já indiquei para 4 amigas."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="faq-container">
+      <div class="section-header fade-in">
+        <span class="section-label">— PERGUNTAS FREQUENTES</span>
+        <h2 class="section-title">Tire suas dúvidas</h2>
+      </div>
+      
+      <div class="faq-list">
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <h3>Como faço para agendar meu atendimento?</h3>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>O agendamento é feito exclusivamente pelo WhatsApp ou pelo formulário nesta página. Respondemos em até 2 horas durante o horário comercial.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <h3>O Studio Belle aceita walk-in (sem agendamento)?</h3>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Não. Trabalhamos apenas com hora marcada para garantir atenção exclusiva a cada cliente. Isso faz parte da nossa filosofia de atendimento personalizado.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <h3>Posso levar meu animal de estimação?</h3>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Com prazer! O Studio Belle é pet friendly. Contamos com quintal exclusivo e ambiente adaptado. Apenas informe ao agendar para nos prepararmos.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <h3>É possível solicitar atendimento domiciliar?</h3>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Oferecemos atendimento domiciliar para serviços selecionados, mediante agendamento com no mínimo 7 dias de antecedência. Consulte disponibilidade e taxa de deslocamento.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <h3>Quais são as formas de pagamento aceitas?</h3>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Aceitamos Pix, cartões de crédito e débito (todas as bandeiras) e dinheiro. Parcelamos em até 6x no cartão para pacotes e combos.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            <h3>Os procedimentos têm algum preparo ou contraindicação?</h3>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Cada procedimento possui orientações específicas. Ao agendar, você receberá um guia completo de preparo e pós-procedimento. Em caso of dúvida, nossa equipe está disponível para orientação prévia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato Section -->
+  <section class="contato" id="contato">
+    <div class="contato-container">
+      <div class="form-card fade-in-left">
+        <form id="contatoForm">
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone/WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" required>
+          </div>
+          <div class="form-group">
+            <label for="servico">Serviço desejado</label>
+            <select id="servico" name="servico" required>
+              <option value="">Selecione um serviço</option>
+              <option value="limpeza">Limpeza de Pele</option>
+              <option value="peeling">Peeling Químico ou Ultrassônico</option>
+              <option value="microagulhamento">Microagulhamento</option>
+              <option value="radiofrequencia-facial">Radiofrequência Facial</option>
+              <option value="botox">Toxina Botulínica (Botox)</option>
+              <option value="preenchimento">Preenchimento Facial/Labial</option>
+              <option value="drenagem">Drenagem Linfática</option>
+              <option value="modeladora">Massagem Modeladora</option>
+              <option value="radiofrequencia-corporal">Radiofrequência Corporal</option>
+              <option value="celulite">Tratamento para Celulite</option>
+              <option value="depilacao">Depilação a Laser</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="data">Data preferida</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar solicitação</button>
+          <p style="font-size: 11px; color: var(--color-text-muted); text-align: center; margin-top: 12px; font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.02em;">
+            ⚠ Este formulário é apenas uma demonstração. Não insira dados reais.
+          </p>
+        </form>
+        
+        <div class="form-success" id="formSuccess">
+          <h3>Obrigada pelo interesse!</h3>
+          <p>Esta é uma demonstração. Em um site real, sua solicitação seria enviada para nossa equipe.</p>
+        </div>
+      </div>
+      
+      <div class="contato-info fade-in-right">
+        <h3>Endereço</h3>
+        <p>Rua dos Pinheiros, 842 — Pinheiros, São Paulo / SP<br>CEP 05422-001</p>
+        
+        <div class="contato-divider"></div>
+        
+        <h3>Contato</h3>
+        <p>WhatsApp: <a href="https://wa.me/5511999999999">(11) 99999-9999</a><br>
+        E-mail: contato@studiobelle.com.br</p>
+        
+        <div class="contato-divider"></div>
+        
+        <h3>Horário de Atendimento</h3>
+        <p>Segunda a Sexta: 9h às 19h<br>
+        Sábado: 9h às 15h<br>
+        Domingo: fechado</p>
+        
+        <div class="contato-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1.5"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4h4a4 4 0 0 0 4 4v4a8 8 0 0 1-8-8z"/></svg>
+          </a>
+        </div>
+        
+        <div class="contato-mapa">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1!2d-46.68!3d-23.56!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzM2LjAiUyA0NsKwNDAnNDguMCJX!5e0!3m2!1spt-BR!2sbr!4v1" loading="lazy"></iframe>
+          <p class="contato-mapa-nota">* Localização genérica para demonstração</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <a href="#" class="logo">
+          <span class="logo-line1">Studio Belle</span>
+          <span class="logo-divider"></span>
+          <span class="logo-line2">Estética</span>
+        </a>
+        <p>"Estética clínica avançada com o acolhimento de quem se importa com você."</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1.5"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4h4a4 4 0 0 0 4 4v4a8 8 0 0 1-8-8z"/></svg>
+          </a>
+          <a href="https://wa.me/5511999999999" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.6 6.3A7.3 7.3 0 0 0 6.5 15.8l-1.3 4.8 4.9-1.3a7.3 7.3 0 0 0 7.5-1.2 7.4 7.4 0 0 0 0-11.8z"/></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-nav">
+        <h4>Navegação</h4>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#promocoes">Promoções</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+      </div>
+      
+      <div class="footer-hours">
+        <h4>Atendimento</h4>
+        <p>Segunda a Sexta: 9h às 19h<br>
+        Sábado: 9h às 15h<br>
+        Domingo: fechado</p>
+        <p style="margin-top: 16px;">Rua dos Pinheiros, 842<br>Pinheiros, São Paulo/SP</p>
+        <p style="margin-top: 8px;"><a href="https://wa.me/5511999999999">(11) 99999-9999</a></p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2025 Studio Belle Estética. Todos os direitos reservados.</p>
+      <p>Desenvolvido por <a href="#">Global Landing</a></p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5511999999999" class="whatsapp-float" aria-label="Agendar pelo WhatsApp">
+    <span class="whatsapp-tooltip">Agendar pelo WhatsApp</span>
+    <svg viewBox="0 0 24 24"><path d="M17.6 6.3A7.3 7.3 0 0 0 6.5 15.8l-1.3 4.8 4.9-1.3a7.3 7.3 0 0 0 7.5-1.2 7.4 7.4 0 0 0 0-11.8z"/></svg>
+  </a>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+    
+    // Close mobile menu on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+      });
+    });
+    
+    // IntersectionObserver for animations
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Counter animation
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.dataset.target);
+          animateCounter(entry.target, target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.stat-number').forEach(el => {
+      counterObserver.observe(el);
+    });
+    
+    function animateCounter(element, target) {
+      let current = 0;
+      const increment = target / 60;
+      const duration = 1500;
+      const stepTime = duration / 60;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target >= 1000 ? '+' + target.toLocaleString() : target;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, stepTime);
+    }
+    
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+        });
+        
+        // Open clicked if wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+    
+    // Form submission
+    const form = document.getElementById('contatoForm');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      formSuccess.classList.add('visible');
+    });
+  </script>
+</body>
+</html>
